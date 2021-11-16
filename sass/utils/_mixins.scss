@@ -1,0 +1,56 @@
+// Transition
+@mixin transition($type) {
+  transition: $type 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+// Font
+
+@mixin font-pm(
+  $font-size,
+  $letter-spacing,
+  $font-weight,
+  $line-height: normal,
+  $font-style: normal
+) {
+  font-size: $font-size * 1px;
+  letter-spacing: $letter-spacing * 1em;
+  font-weight: $font-weight;
+
+  @if $line-height==normal {
+    line-height: normal;
+  } @else {
+    line-height: $line-height / $font-size;
+  }
+}
+
+@mixin font-logo() {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 1.192;
+  letter-spacing: 0.03em;
+}
+
+@mixin mobile {
+  @media only screen and (min-width: $mobile * 1px) {
+    @content;
+  }
+}
+
+@mixin mobile-max {
+  @media only screen and (min-width: $mobileMax * 1px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tablet * 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop * 1px) {
+    @content;
+  }
+}
